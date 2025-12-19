@@ -20,6 +20,16 @@ typedef struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 } binary_tree_t;
+/**
+ * struct queue_s - Queue for level-order traversal
+ * @node: Pointer to binary tree node
+ * @next: Pointer to next queue node
+ */
+typedef struct queue_s
+{
+	const binary_tree_t *node;
+	struct queue_s *next;
+} queue_t;
 
 /* PROTOTYPES */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
@@ -43,6 +53,7 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		const binary_tree_t *second);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
 /* Print function */
 void binary_tree_print(const binary_tree_t *tree);
