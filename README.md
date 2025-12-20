@@ -173,7 +173,6 @@ Rotations preserve in-order traversal.
 
 ## Compilation and Usage
 
-```bash
 gcc -Wall -Wextra -Werror -pedantic -std=gnu89
 
 ## Example
