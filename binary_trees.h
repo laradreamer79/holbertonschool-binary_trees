@@ -63,6 +63,7 @@ int binary_tree_is_heap(const binary_tree_t *tree);
 int binary_tree_is_avl(const binary_tree_t *tree);
 avl_t *array_to_avl(int *array, size_t size);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
+int binary_tree_is_bst(const binary_tree_t *tree);
 
 /* Print function */
 void binary_tree_print(const binary_tree_t *tree);
