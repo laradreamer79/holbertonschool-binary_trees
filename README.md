@@ -44,8 +44,8 @@ typedef struct binary_tree_s heap_t;
 ## File Organization
 
 ### Core Structure
-- `0-binary_tree_node.c`
-- `binary_trees.h`
+- `0-binary_tree_node.c` — Defines binary tree structures and function prototypes
+- `binary_trees.h` — Creates and initializes a new binary tree node
 
 ### Insertions
 - `1-binary_tree_insert_left.c`
