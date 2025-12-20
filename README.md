@@ -1,108 +1,205 @@
-# 🌳 Holberton School — Binary Trees Project
+# Binary Trees in C
+Holberton School — Low Level Programming
 
-> A comprehensive C implementation of Binary Trees, Binary Search Trees (BST),
-> AVL Trees, and Binary Heaps  
-> Built following Holberton School standards (GNU89, Betty style)
+This repository contains my implementation of binary tree data structures
+as part of the Holberton School curriculum. The project focuses on building
+a strong understanding of hierarchical data structures, tree traversal
+algorithms, structural validation, and self-balancing trees.
 
----
-
-## 📌 Table of Contents
-1. Project Overview
-2. Data Structures
-3. Project Architecture
-4. File & Function Reference
-5. Algorithm Visuals
-6. Complexity Summary
-7. How to Compile & Test
-8. Glossary
-9. Author
+The work progresses from basic binary tree operations to more advanced
+structures such as Binary Search Trees (BST), AVL Trees, and Binary Heaps.
 
 ---
 
-## 📖 Project Overview
+## Table of Contents
 
-This project is a complete implementation of **Binary Trees** in C.
-It covers fundamental and advanced tree concepts, including:
-
-- Tree traversal algorithms
-- Structural validation (leaf, full, perfect, complete)
-- Tree metrics (height, depth, size, balance)
-- Binary Search Trees (BST)
-- AVL Trees (self-balancing BST)
+- Learning Objectives
+- Data Structure Definition
+- Project Organization
+- Tree Traversals
+- Tree Measurements
+- Tree Properties
+- Binary Search Trees
+- AVL Trees
 - Binary Heaps
-- Tree rotations (left and right)
-
-All implementations are:
-- ✅ Betty compliant
-- ✅ Modular and reusable
-- ✅ Memory-safe
-- ✅ Checker-ready
+- Tree Rotations
+- Compilation and Testing
+- Glossary
+- Author
 
 ---
 
-## 🧱 Data Structures
+## Learning Objectives
+
+This project allowed me to practice and understand:
+
+- Recursive data structures
+- Tree traversal strategies
+- Measuring and validating tree properties
+- Differences between BST, AVL, and Heap trees
+- Tree balancing using rotations
+- Writing clean, modular, and Betty-compliant C code
+
+---
+
+## Data Structure Definition
+
+All trees in this project are based on the following structure:
 
 ```c
 typedef struct binary_tree_s
 {
-    int n;
-    struct binary_tree_s *parent;
-    struct binary_tree_s *left;
-    struct binary_tree_s *right;
+	int n;
+	struct binary_tree_s *parent;
+	struct binary_tree_s *left;
+	struct binary_tree_s *right;
 } binary_tree_t;
+Type aliases are used to represent specific tree types:
 
-/* Type aliases */
+c
+Copy code
 typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
+Project Organization
+The project is implemented incrementally. Core helper functions such as
+tree traversal, height calculation, and balance measurement are reused
+across multiple tasks. Advanced tree types rely on previously implemented
+logic to ensure consistency and correctness.
+
+Tree Traversals
+The following traversal algorithms are implemented:
+
+Preorder traversal (Root → Left → Right)
+
+Inorder traversal (Left → Root → Right)
+
+Postorder traversal (Left → Right → Root)
+
+Level-order traversal (Breadth-first traversal)
+
+Traversal functions use recursion or queue-based logic depending on the
+strategy.
+
+Tree Measurements
+Several functions are provided to analyze tree structure:
+
+Height: longest path from a node to a leaf
+
+Depth: distance from a node to the root
+
+Size: total number of nodes
+
+Leaves: number of leaf nodes
+
+Nodes: number of internal nodes
+
+Balance factor: difference between left and right subtree heights
+
+These measurements are reused in validation and balancing operations.
+
+Tree Properties
+The following tree properties can be validated:
+
+Leaf node
+
+Root node
+
+Full binary tree
+
+Perfect binary tree
+
+Complete binary tree
+
+Each property follows its formal definition and is checked recursively.
+
+Binary Search Trees (BST)
+BST validation ensures that:
+
+Values in the left subtree are strictly smaller than the node
+
+Values in the right subtree are strictly greater than the node
+
+No duplicate values exist
+
+Range-based recursion is used to guarantee correctness.
+
+AVL Trees
+AVL trees extend BSTs by enforcing strict balance constraints.
+This project includes:
+
+AVL tree validation
+
+AVL insertion with automatic rebalancing
+
+Conversion of an array into an AVL tree
+
+Balancing is achieved using left and right rotations based on the balance
+factor of each node.
+
+Binary Heaps
+Binary heap validation confirms that a tree:
+
+Is complete
+
+Satisfies the max-heap property
+
+Index-based traversal is used to efficiently verify completeness.
+
+Tree Rotations
+Rotations are implemented to support AVL balancing:
+
+Left rotation
+
+Right rotation
+
+Rotations preserve tree ordering while reducing height imbalance.
+
+Compilation and Testing
+All files are compiled using the following flags:
+
+bash
+Copy code
+gcc -Wall -Wextra -Werror -pedantic -std=gnu89
+Example compilation:
+
+bash
+Copy code
+gcc binary_tree_print.c <file>.c 0-binary_tree_node.c -o test
+./test
+Code style is verified using:
+
+bash
+Copy code
+betty <file>.c
+Glossary
 Binary Tree
-├── Traversals
-│   ├── Preorder
-│   ├── Inorder
-│   ├── Postorder
-│   └── Level-order
-│
-├── Properties
-│   ├── Height
-│   ├── Depth
-│   ├── Size
-│   ├── Leaves
-│   ├── Nodes
-│   ├── Balance
-│   ├── Full
-│   ├── Perfect
-│   └── Complete
-│
-├── Relations
-│   ├── Sibling
-│   ├── Uncle
-│   └── Lowest Common Ancestor
-│
-├── BST
-│   └── Validation
-│
-├── AVL
-│   ├── Validation
-│   ├── Insertion
-│   └── Array to AVL
-│
-└── Heap
-    └── Validat
+A hierarchical structure where each node has at most two children.
 
-File & Function Reference
-Core Creation
+Traversal
+The process of visiting each node in a tree in a defined order.
 
-| File                   | Function           | Description                    |
-| ---------------------- | ------------------ | ------------------------------ |
-| `0-binary_tree_node.c` | `binary_tree_node` | Creates a new binary tree node |
+Height
+The number of edges on the longest path from a node to a leaf.
 
+Depth
+The number of edges from a node to the root.
 
-Structural Checks
-| File                            | Function                  | Description                |
-| ------------------------------- | ------------------------- | -------------------------- |
-| `4-binary_tree_is_leaf.c`       | `binary_tree_is_leaf`     | Checks if node is a leaf   |
-| `5-binary_tree_is_root.c`       | `binary_tree_is_root`     | Checks if node is root     |
-| `15-binary_tree_is_full.c`      | `binary_tree_is_full`     | Checks if tree is full     |
-| `16-binary_tree_is_perfect.c`   | `binary_tree_is_perfect`  | Checks if tree is perfect  |
-| `102-binary_tree_is_complete.c` | `binary_tree_is_complete` | Checks if tree is complete |
+Balance Factor
+The difference between the heights of the left and right subtrees.
 
+Binary Search Tree (BST)
+A binary tree where left subtree values are smaller and right subtree values
+are greater than the node.
+
+AVL Tree
+A self-balancing binary search tree.
+
+Binary Heap
+A complete binary tree that satisfies the heap property.
+
+Rotation
+An operation that restructures a tree to restore balance.
+
+Author
+Lara Alzannan And Afnan Alfaidi
