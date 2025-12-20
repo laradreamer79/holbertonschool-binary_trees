@@ -2,17 +2,6 @@
 #include <stdlib.h>
 
 /**
- * struct queue_s - Queue node for level-order traversal
- * @node: Pointer to a binary tree node
- * @next: Pointer to next queue node
- */
-typedef struct queue_s
-{
-	const binary_tree_t *node;
-	struct queue_s *next;
-} queue_t;
-
-/**
  * enqueue - Add a node to the queue
  * @head: Pointer to queue head
  * @tail: Pointer to queue tail
@@ -20,10 +9,11 @@ typedef struct queue_s
  *
  * Return: 1 on success, 0 on failure
  */
-static int enqueue(queue_t **head, queue_t **tail,
-				   const binary_tree_t *node)
+static int enqueue(struct queue_s **head,
+		   struct queue_s **tail,
+		   const binary_tree_t *node)
 {
-	queue_t *new = malloc(sizeof(queue_t));
+	struct queue_s *new = malloc(sizeof(struct queue_s));
 
 	if (!new)
 		return (0);
@@ -47,7 +37,7 @@ static int enqueue(queue_t **head, queue_t **tail,
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	queue_t *head = NULL, *tail = NULL, *tmp;
+	struct queue_s *head = NULL, *tail = NULL, *tmp;
 	const binary_tree_t *node;
 
 	if (!tree || !func)
