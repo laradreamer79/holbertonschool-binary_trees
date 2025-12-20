@@ -26,8 +26,8 @@ This project implements binary tree data structures and algorithms in C, coverin
 ---
 
 ## Data Structure Definition
-
 ```c
+
 typedef struct binary_tree_s
 {
     int n;
@@ -39,6 +39,8 @@ typedef struct binary_tree_s
 typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
+
+```
 
 ## File Organization
 
