@@ -44,53 +44,53 @@ typedef struct binary_tree_s heap_t;
 ## File Organization
 
 ### Core Structure
-- `0-binary_tree_node.c` — Defines binary tree structures and function prototypes
-- `binary_trees.h` — Creates and initializes a new binary tree node
+- `binary_trees.h` — Defines binary tree structures and function prototypes
+- `0-binary_tree_node.c` — Creates and initializes a new binary tree node
 
 ### Insertions
-- `1-binary_tree_insert_left.c`
-- `2-binary_tree_insert_right.c`
+- `1-binary_tree_insert_left.c` — Inserts a node as the left child
+- `2-binary_tree_insert_right.c` — Inserts a node as the right child
 
 ### Traversals
-- `6-binary_tree_preorder.c`
-- `7-binary_tree_inorder.c`
-- `8-binary_tree_postorder.c`
-- `101-binary_tree_levelorder.c`
+- `6-binary_tree_preorder.c` — Preorder traversal (Root → Left → Right)
+- `7-binary_tree_inorder.c` — Inorder traversal (Left → Root → Right) 
+- `8-binary_tree_postorder.c` — Postorder traversal (Left → Right → Root)
+- `101-binary_tree_levelorder.c` — Level-order (breadth-first) traversal
 
 ### Structural Measurements
-- `9-binary_tree_height.c`
-- `10-binary_tree_depth.c`
-- `11-binary_tree_size.c`
-- `12-binary_tree_leaves.c`
-- `13-binary_tree_nodes.c`
-- `14-binary_tree_balance.c`
+- `9-binary_tree_height.c` — Computes the height of a binary tree
+- `10-binary_tree_depth.c` — Computes the depth of a node
+- `11-binary_tree_size.c` - Computes total number of nodes 
+- `12-binary_tree_leaves.c` — Counts leaf nodes 
+- `13-binary_tree_nodes.c` — Counts internal nodes
+- `14-binary_tree_balance.c` — Computes balance factor
 
 ### Binary Tree Properties
-- `4-binary_tree_is_leaf.c`
-- `5-binary_tree_is_root.c`
-- `15-binary_tree_is_full.c`
-- `16-binary_tree_is_perfect.c`
-- `102-binary_tree_is_complete.c`
+- `4-binary_tree_is_leaf.c` — Checks if a node is a leaf 
+- `5-binary_tree_is_root.c` — Checks if a node is the root 
+- `15-binary_tree_is_full.c` — Checks if a tree is full
+- `16-binary_tree_is_perfect.c` — Checks if a tree is perfect
+- `102-binary_tree_is_complete.c` — Checks if a tree is complete
 
 ### Relationships
-- `17-binary_tree_sibling.c`
-- `18-binary_tree_uncle.c`
-- `100-binary_trees_ancestor.c`
+- `17-binary_tree_sibling.c` — Finds the sibling of a node 
+- `18-binary_tree_uncle.c` — Finds the uncle of a node  
+- `100-binary_trees_ancestor.c` — Finds the lowest common ancestor
 
 ### Rotations
-- `103-binary_tree_rotate_left.c`
-- `104-binary_tree_rotate_right.c`
+- `103-binary_tree_rotate_left.c` — Performs a left rotation 
+- `104-binary_tree_rotate_right.c` — Performs a right rotation
 
 ### Binary Search Trees
-- `110-binary_tree_is_bst.c`
+- `110-binary_tree_is_bst.c` — Validates Binary Search Tree propertie
 
 ### AVL Trees
-- `120-binary_tree_is_avl.c`
-- `121-avl_insert.c`
-- `122-array_to_avl.c`
+- `120-binary_tree_is_avl.c` — Checks if a tree is a valid AVL tree
+- `121-avl_insert.c` — Inserts a value into an AVL tree
+- `122-array_to_avl.c`  — Builds an AVL tree from 
 
 ### Binary Heaps
-- `130-binary_tree_is_heap.c`
+- `130-binary_tree_is_heap.c` — Validates max binary heap properties
 
 ---
 
