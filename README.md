@@ -23,6 +23,7 @@ This project implements binary tree data structures and algorithms in C, coverin
 - [Glossary](#glossary)
 - [Author](#author)
 
+
 ---
 
 ## Data Structure Definition
