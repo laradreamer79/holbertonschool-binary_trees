@@ -20,6 +20,10 @@ typedef struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 } binary_tree_t;
+typedef struct binary_tree_s bst_t;
+typedef struct binary_tree_s avl_t;
+typedef struct binary_tree_s heap_t;
+
 /**
  * struct queue_s - Queue for level-order traversal
  * @node: Pointer to binary tree node
@@ -57,6 +61,8 @@ int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 int binary_tree_is_heap(const binary_tree_t *tree);
 int binary_tree_is_avl(const binary_tree_t *tree);
+avl_t *array_to_avl(int *array, size_t size);
+binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 
 /* Print function */
 void binary_tree_print(const binary_tree_t *tree);
