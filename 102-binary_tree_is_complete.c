@@ -1,96 +1,59 @@
 #include "binary_trees.h"
-#include <stdlib.h>
 
 /**
- * enqueue - Add node to queue
- * @head: Pointer to queue head
- * @tail: Pointer to queue tail
- * @node: Tree node to add
+ * tree_size - Counts the number of nodes in a binary tree
+ * @tree: Pointer to the root node
  *
- * Return: 1 on success, 0 on failure
+ * Return: Number of nodes
  */
-static int enqueue(struct queue_s **head,
-		   struct queue_s **tail,
-		   const binary_tree_t *node)
+static size_t tree_size(const binary_tree_t *tree)
 {
-	struct queue_s *new = malloc(sizeof(struct queue_s));
-
-	if (!new)
+	if (!tree)
 		return (0);
 
-	new->node = node;
-	new->next = NULL;
-
-	if (*tail)
-		(*tail)->next = new;
-	else
-		*head = new;
-
-	*tail = new;
-	return (1);
+	return (1 + tree_size(tree->left) + tree_size(tree->right));
 }
-
 /**
- * process_node - Process a node for completeness check
- * @node: Current tree node
- * @head: Queue head
- * @tail: Queue tail
- * @leaf: Pointer to leaf-only flag
+ * is_complete_index - Checks completeness using array indexing
+ * @tree: Pointer to the current node
+ * @index: Index of the node in array representation
+ * @size: Total number of nodes in the tree
  *
- * Return: 1 if valid, 0 otherwise
+ * Return: 1 if complete, 0 otherwise
  */
-static int process_node(const binary_tree_t *node,
-			struct queue_s **head,
-			struct queue_s **tail,
-			int *leaf)
+static int is_complete_index(const binary_tree_t *tree,
+		size_t index, size_t size)
 {
-	if (node->left)
-	{
-		if (*leaf || !enqueue(head, tail, node->left))
-			return (0);
-	}
-	else
-		*leaf = 1;
+	int left_ok;
+	int right_ok;
 
-	if (node->right)
-	{
-		if (*leaf || !enqueue(head, tail, node->right))
-			return (0);
-	}
-	else
-		*leaf = 1;
+	if (!tree)
+		return (1);
 
-	return (1);
+	if (index >= size)
+		return (0);
+
+	left_ok = is_complete_index(tree->left,
+			2 * index + 1, size);
+	right_ok = is_complete_index(tree->right,
+			2 * index + 2, size);
+
+	return (left_ok && right_ok);
 }
-
 /**
  * binary_tree_is_complete - Checks if a binary tree is complete
- * @tree: Pointer to the root node
+ * @tree: Pointer to the root node of the tree
  *
  * Return: 1 if complete, 0 otherwise
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	struct queue_s *head = NULL, *tail = NULL, *tmp;
-	const binary_tree_t *node;
-	int leaf = 0;
+	size_t size;
 
-	if (!tree || !enqueue(&head, &tail, tree))
+	if (!tree)
 		return (0);
 
-	while (head)
-	{
-		tmp = head;
-		node = head->node;
-		head = head->next;
-		if (!head)
-			tail = NULL;
-		free(tmp);
-
-		if (!process_node(node, &head, &tail, &leaf))
-			return (0);
-	}
-
-	return (1);
+	size = tree_size(tree);
+	return (is_complete_index(tree, 0, size));
 }
 
