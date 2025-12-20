@@ -19,7 +19,6 @@ This project implements binary tree data structures and algorithms in C, coverin
 - [AVL Trees](#avl-trees)
 - [Binary Heaps](#binary-heaps)
 - [Compilation and Usage](#compilation-and-usage)
-- [Design Decisions](#design-decisions)
 - [Glossary](#glossary)
 - [Author](#author)
 
